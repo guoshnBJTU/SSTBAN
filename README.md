@@ -29,3 +29,17 @@ We give three examples (PEMSD8_36_36, PEMSD4_36_36, Seattle_1hour_36_36), and hy
   - ### model training:
   - 1. Enter the "SSTBAN/"
   - 2. Run "python train_SSTBAN.py --config configurations/Seattle_3dim_24.conf"
+  
+You can download the data from:
+
+Google Drive:
+https://drive.google.com/file/d/1vBn8UDbIOz5T_MAahVNoYccR0jDjjFh-/view?usp=sharing
+One Drive:
+https://1drv.ms/u/s!AuEMUxDDxoXMxGdrVE7f9CYy330R?e=l6Jy01
+Baidu Cloud:
+https://pan.baidu.com/s/1MwWspHYSsg5fJsiYMiqn2g     password：g4hw
+Aliyun Cloud:
+https://www.aliyundrive.com/s/1bkb3bUFE53 
+
+
+
