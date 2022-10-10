@@ -1,10 +1,10 @@
+import pandas as pd
 import numpy as np
 import os
 import argparse
 import configparser
 import warnings
 import torch
-import pandas as pd
 from copy import deepcopy
 import time
 import torch.utils.data
@@ -65,8 +65,6 @@ if use_nni:
     training_config['T_miss_len']=str(T_miss_len)
     self_weight_dis = float(params['self_weight_dis'])
     training_config['self_weight_dis'] = str(self_weight_dis)
-    reference = int(params['reference'])
-    training_config['reference'] = str(reference)
 else:
     L = int(training_config['L'])
     K = int(training_config['K'])
@@ -248,7 +246,7 @@ for epoch_num in range(0, max_epoch):
         wait += 1
     scheduler.step()
 params_filename=params_filename+"_"+str(val_loss_min.cpu().numpy())
-torch.save(best_model, params_filename)
+#torch.save(best_model, params_filename)
 print(f"saving model to {params_filename}")
 
 

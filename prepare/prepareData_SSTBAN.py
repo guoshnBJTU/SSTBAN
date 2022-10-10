@@ -79,11 +79,13 @@ if __name__ == "__main__":
     te = {}
     for set_name in sets.keys():
         data_set = sets[set_name]
-        X, Y = seq2instance_plus(data_set[..., :3].astype("float64"), num_his, num_pred)
+        X, Y = seq2instance_plus(data_set[..., :1].astype("float64"), num_his, num_pred)
 
         xy[set_name] = [X, Y]
 
         time = data_set[:, 0, -1]  # timestamp
+        if "PEMSD" in data_file:
+            time = pd.to_datetime(time,unit='s')
         time = pd.DatetimeIndex(time)
         dayofweek = np.reshape(time.weekday, (-1, 1))
         print(dayofweek.shape)
@@ -92,7 +94,6 @@ if __name__ == "__main__":
         timeofday = np.reshape(timeofday, (-1, 1))
         time = np.concatenate((dayofweek, timeofday), -1)
         time = seq2instance(time, num_his, num_pred)
-
         te[set_name] = np.concatenate(time, 1).astype(np.int32)
 
     x_trains, y_trains = xy['train'][0], xy['train'][1]
